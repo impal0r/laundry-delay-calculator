@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laundry delayed-start calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Laundry delayed-start calculator</h1>
+
+  <section class="block">
+    <h2>Mode</h2>
+    <div class="mode-select" role="group" aria-label="Mode">
+      <button type="button" id="mode-delay-start" class="card">Delay start</button>
+      <button type="button" id="mode-delay-end" class="card">Delay end</button>
+    </div>
+    <label class="rounding-field">
+      <span>Rounding:</span>
+      <select id="rounding-select">
+        <option value="1">1m</option>
+        <option value="5" selected>5m</option>
+        <option value="10">10m</option>
+        <option value="15">15m</option>
+        <option value="60">1h</option>
+      </select>
+    </label>
+    <button type="button" id="mode-help-toggle" class="help-toggle">
+      <svg id="mode-help-caret" class="help-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="9,6 15,12 9,18"></polyline>
+      </svg>
+      Show help
+    </button>
+    <div id="mode-help-text" class="help-text" hidden>
+      <p>Delay settings can work differently on different washing machines.
+      Some machines let you set the delay until the cycle starts, while others let you choose
+      how long it should take before the cycle finishes.</p>
+      <p>
+      Delay start: set how long to wait before the cycle starts.
+      <br />
+      Delay end: set how long until the cycle finishes.
+      </p>
+      <p>Use the Rounding dropdown to choose how precise you want the delay setting.</p>
+    </div>
+  </section>
+
+  <section class="block" id="cycle-length-block">
+    <h2>Wash cycle length</h2>
+    <div class="cycle-fields">
+      <label class="cycle-field">
+        <input type="number" inputmode="numeric" maxlength="2" min="0" max="99" id="cycle-hours" placeholder="0">
+        <span>h</span>
+      </label>
+      <label class="cycle-field">
+        <input type="number" inputmode="numeric" maxlength="2" min="0" max="99" id="cycle-minutes" placeholder="0">
+        <span>m</span>
+      </label>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Target finish time</h2>
+    <input type="time" id="target-time">
+    <div class="target-day" role="group" aria-label="Target day">
+      <button type="button" id="day-today" class="card">Today</button>
+      <button type="button" id="day-tomorrow" class="card">Tomorrow</button>
+      <button type="button" id="day-custom" class="card">
+        <svg class="calendar-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+          <line x1="3" y1="9.5" x2="21" y2="9.5"></line>
+          <line x1="7.5" y1="3" x2="7.5" y2="7"></line>
+          <line x1="16.5" y1="3" x2="16.5" y2="7"></line>
+        </svg>
+        <span id="custom-date-label"></span>
+      </button>
+    </div>
+    <input type="date" id="custom-date-input" class="visually-hidden" tabindex="-1" aria-hidden="true">
+  </section>
+
+  <section class="block result" aria-live="polite">
+    <h2>Delay setting</h2>
+    <p><span id="result-value" class="result-value"></span></p>
+    <p id="result-meta" class="result-meta"></p>
+    <p id="result-warning" class="result-warning" hidden></p>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

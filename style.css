@@ -1,0 +1,228 @@
+:root {
+  --colour-page-bg: #f4f1ea;
+  --colour-card-bg: #ffffff;
+  --colour-border: #ddd8cc;
+  --colour-text: #2e2c28;
+  --colour-text-muted: #6b675e;
+  --colour-active-border: #3a7d44;
+  --colour-active-bg: #eaf4ea;
+  --colour-danger: #c0392b;
+  --colour-danger-bg: #fbeae4;
+  --colour-warning: #b5610f;
+  --colour-warning-bg: #fbf0e2;
+  --block-radius: 16px;
+  --block-padding: 20px;
+  --gap: 12px;
+  --card-radius: 10px;
+  --card-padding: 8px;
+  --content-max-width: 500px;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--colour-page-bg);
+  color: var(--colour-text);
+  font-family: var(--font-stack);
+}
+
+main {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin: 0 0 24px;
+}
+
+h2 {
+  font-size: 0.95rem;
+  color: var(--colour-text);
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+input {
+  font-family: inherit;
+}
+
+.block {
+  background: var(--colour-card-bg);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--block-radius);
+  padding: var(--block-padding);
+  margin-bottom: var(--gap);
+}
+
+.block[hidden] {
+  display: none;
+}
+
+.card {
+  flex: 1;
+  background: var(--colour-page-bg);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--colour-text);
+  cursor: pointer;
+}
+
+.card.is-active {
+  border-color: var(--colour-active-border);
+  background: var(--colour-active-bg);
+  color: var(--colour-active-border);
+}
+
+.mode-select,
+.target-day {
+  display: flex;
+  gap: var(--gap);
+}
+
+.rounding-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--gap);
+  font-size: 0.9rem;
+  color: var(--colour-text);
+}
+
+.rounding-field select {
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--colour-text);
+  background: var(--colour-page-bg);
+  border: 1px solid var(--colour-border);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.help-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--gap);
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--colour-text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.help-caret {
+  flex-shrink: 0;
+  transform: rotate(0deg);
+}
+
+.help-caret.is-expanded {
+  transform: rotate(90deg);
+}
+
+.help-text {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: var(--colour-text-muted);
+}
+
+.help-text[hidden] {
+  display: none;
+}
+
+.target-day .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cycle-fields {
+  display: flex;
+  gap: var(--gap);
+}
+
+.cycle-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cycle-field input {
+  flex: 1;
+  width: 0;
+  min-width: 0;
+  font-size: 16px;
+  color: var(--colour-text);
+  border: 1px solid var(--colour-border);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.cycle-field input.is-error {
+  border-color: var(--colour-danger);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+input[type="time"] {
+  margin-bottom: var(--gap);
+  font-size: 16px;
+  border: 1px solid var(--colour-border);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.result-value {
+  margin: 0;
+  padding: var(--card-padding);
+  font-size: 1.6rem;
+  color: var(--colour-active-border);
+  background-color: var(--colour-active-bg);
+  border-color: var(--colour-active-border);
+  border-radius: var(--card-radius);
+}
+
+.result-value.is-error {
+  padding: 0;
+  color: var(--colour-danger);
+  background-color: transparent;
+}
+
+.result-meta {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  color: var(--colour-text-muted);
+}
+
+.result-warning {
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: var(--card-padding);
+  color: var(--colour-warning);
+  background-color: var(--colour-warning-bg);
+  border-radius: var(--card-radius);
+}
+
+.result-warning[hidden] {
+  display: none;
+}
